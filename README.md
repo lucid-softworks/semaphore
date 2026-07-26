@@ -15,6 +15,10 @@ const response = await semaphore.run(() => fetch("/api/report"));
 span custom setup and cleanup:
 
 ```ts
+import { Semaphore } from "@lucid-softworks/semaphore";
+
+const semaphore = new Semaphore(3);
+const useSharedResource = async () => console.log("Using resource");
 const release = await semaphore.acquire();
 
 try {
